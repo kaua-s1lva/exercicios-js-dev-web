@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Datas</title>
+    <script language="Javascript">
+        function converterMesEmString(mes) {
+            var nomeMes
+
+            switch (mes) {
+                case 0: nomeMes = "janeiro"; break
+                case 1: nomeMes = "fevereiro"; break
+                case 2: nomeMes = "março"; break
+                case 3: nomeMes = "abril"; break
+                case 4: nomeMes = "maio"; break
+                case 5: nomeMes = "junho"; break
+                case 6: nomeMes = "julho"; break
+                case 7: nomeMes = "agosto"; break
+                case 8: nomeMes = "setembro"; break
+                case 9: nomeMes = "outubro"; break
+                case 10: nomeMes = "novembro"; break
+                case 11: nomeMes = "dezembro"; break
+            }
+
+            return nomeMes
+        }
+
+        const data = new Date()
+
+        var dia = data.getDate()
+        var mes = converterMesEmString(data.getMonth())
+        var ano = data.getFullYear()
+
+        var hora = data.getHours()
+        var minutos = data.getMinutes()
+        
+    </script>
+</head>
+<body>
+    <p>
+        <script>
+            document.write("Bem vindo! Hoje são " + dia + " de " + mes + " de " + ano)
+        </script>
+    </p>
+    <p>
+        <script>
+            document.write("Seu acesso no sistema foi feito às " + hora + ":" + minutos)
+        </script>
+    </p>
+</body>
+</html>

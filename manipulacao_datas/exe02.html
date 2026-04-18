@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Datas</title>
+    <script>
+        function calcularDias(dataA, dataB) {
+            dataA = new Date(dataA.getFullYear(), dataA.getMonth(), dataA.getDate())
+            dataB = new Date(dataB.getFullYear(), dataB.getMonth(), dataB.getDate())
+
+            var diffEmMilissegundos = Math.abs(dataA - dataB)
+            var dias = diffEmMilissegundos / ( 1000 * 60 * 60 * 24 )
+            dias = parseInt(dias)
+            return dias
+        }
+
+        var dataValidade = prompt("Digite a data da validade no formato DD/MM/YYYY: ")
+
+        var partes = dataValidade.split("/")
+        var dia = partes[0]
+        var mes = partes[1]
+        var ano = partes[2]
+
+        dataValidade = new Date(ano, mes - 1, dia)
+        var dataAtual = new Date()
+        var dias = calcularDias(dataValidade, dataAtual)
+
+        if (dias == 0) {
+            document.write("O produto vence hoje!")
+        } else if (dataValidade > dataAtual) {
+            document.write("Produto restando " + dias + " dias para o vencimento")
+        } else if (dataValidade < dataAtual) {
+            document.write("Produto vencido hà " + dias + " dias")
+        } else {
+            document.write("Data incorreta, digite uma data válida")
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
