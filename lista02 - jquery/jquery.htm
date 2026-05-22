@@ -4,9 +4,74 @@
 <head>
     <title>O framework jQuery</title>
     <script type="text/javascript" src="http://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=euiOLpana3LuR3axIufLRViPrtJYdI27MKR-PHbVWG550eQ43ulWffwjtCuXvOLWfHjTnKFxgM-ttHH2RoBZa5MtrgRkmUV0jle4ojHf6TQgKWuQ4A54PSoca5bCMK7o" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://ff.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL3d3dy5icnVub2NhbXBhZ25vbG8uY29tLzIwMTB0cHUvd3AtY29udGVudC91cGxvYWRzLzIwMTAvMDMvanF1ZXJ5Lmh0bQ"/><script type="text/javascript" src="jquery-1.3.2.js"></script>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+
     <script type="text/javascript">
         // Resolva seu exercício ABAIXO
 
+        $(function() {
+            // 3.1
+            $("#toc").hide()
+
+            // 3.2
+            $("#btContents").click(function () {
+                $("#toc").show()
+            })
+
+            // 3.3
+            $("#btHideContents").click(function () {
+                $("#toc").hide()
+            })
+
+            // 3.4
+            $("#btShowHideContents").click(function () {
+                $("#toc").toggle()
+            })
+
+            // 3.5
+            $(".external").css("border", "1px solid red")
+
+            // 3.6
+            $(".header").css("background-color", "yellow").show(1500)
+
+            // 3.7 e 3.8
+            $(".editsection").hide(1500); 
+            $("#btEditMode").click(function () {
+                $(".editsection").show();
+            });
+
+            // 3.9
+            $("#btShowHideContents").off("click").click(function () {
+                $("#toc").toggle(2000, function() {
+                    $(".tocnumber").css("background-color", "gray");
+                });
+            });
+
+            // 3.12
+            $("fieldset input").after(" *");
+
+            // 3.13 e 3.14
+            $(".editsection a").before("<span class='sinal'>>>>&lt;</span> ");
+            $(".editsection .sinal").hover(
+                function() { $(this).css("font-style", "italic"); },
+                function() { $(this).css("font-style", "normal"); }
+            );
+
+            // 3.15
+            $("p > a").click(function(e) {
+                e.preventDefault();
+                alert($(this).attr("title"));
+            });
+
+            // 3.16
+            $("input").each(function() {
+                if ($(this).prev("label").length > 0) {
+                    $(this).val($(this).attr("title"));
+                }
+            });
+            
+        })
         
         // Resolva seu exercício ACIMA
     </script>
